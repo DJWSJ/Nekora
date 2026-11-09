@@ -2,6 +2,58 @@
 
 APK 下载：[Releases](https://github.com/DJWSJ/Nekora/releases)。
 
+## v1.0.2
+
+### Nekora 1.0.2 · 体验优化
+
+本次更新集中优化私信、评论入口与功能查找体验，并精简消息长按菜单。
+
+#### 优化与修复
+
+- 优化私信消息读取、快照合并和列表绑定，减少重复处理与内存复制开销。
+- 优化防撤回提示的消息匹配与缓存复用，减少高频页面操作下的重复查找。
+- 调整评论设置入口的位置，位于关闭按钮左侧第三位，减少与原生按钮的布局干扰。
+- 优化本地自定义评论的构造与列表刷新，使本地展示更一致；本地评论不会真正发布到平台。
+- 精简不再使用的功能查找与后台预热，降低无关解析开销。
+- 修复部分系统环境中适配缓存读写被持续阻断、反复触发功能查找的问题，并保留旧进程与目录迁移的安全检查。
+
+#### 移除项
+
+- 移除私信长按菜单中的「消息数据」自定义入口，以及对应的字段查看、复制面板。
+- 宿主原生长按菜单保持不变；私信防撤回、一键已读及评论设置入口继续保留。
+
+#### 适配范围
+
+| 宿主 | 包名 | 适配参考版本 |
+| --- | --- | --- |
+| 快手极速版 | `com.kuaishou.nebula` | 14.7.20、14.7.30.11804、14.7.40.11821、14.8.20、14.8.40.11936 |
+| 快手标准版 | `com.smile.gifmaker` | 14.9.20.50799 |
+
+以上为适配参考范围，不代表每个版本的全部功能均已完整实测，也不保证其间的所有小版本兼容。功能可用性还受动态插件、账号状态和设备环境影响，未列出的版本不作兼容承诺。
+
+##### 运行要求
+
+- 安装包名保持 `top.djwsj.nekora`，安装后请完整重启宿主，使本次调整生效。
+- 从 1.0.1 升级时不能直接覆盖安装，请先卸载旧模块 App，再安装本版；卸载会清除模块 App 的本地数据，请提前保留所需设置。
+- 与旧 `top.djwsj`、`top.djwsj.nakora` 是不同应用，旧模块 App 的数据不会自动迁移；请在框架中只启用其中一个，避免重复注入。
+- 安装下限为 Android 8.0（API 26）；实际可用系统版本还受宿主与框架限制。
+- 正式 APK 包含 `arm64-v8a` 与 `armeabi-v7a`，需要兼容的 ARM 设备、宿主进程和框架。
+- 使用支持 libxposed API 102 的框架，例如 Vector 2.2，并启用对应宿主作用域；旧 LSPosed 1.9.2 不支持此入口。
+- 标准版、极速版与模块 App 的配置分别保存，开关不会自动相互同步。
+
+#### 使用的开源仓库
+
+| 项目 | 用途 | 仓库 |
+| --- | --- | --- |
+| libxposed API | 模块运行接口 | [libxposed/api](https://github.com/libxposed/api) |
+| DexKit | 宿主功能适配 | [LuckyPray/DexKit](https://github.com/LuckyPray/DexKit) |
+| AndroidX / Jetpack Compose | 界面、主题与基础组件 | [androidx/androidx](https://github.com/androidx/androidx) |
+| Kotlin Coroutines | 异步任务与界面调度 | [Kotlin/kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) |
+| OkHttp | 安装包下载 | [square/okhttp](https://github.com/square/okhttp) |
+| StringFog | 字符串处理 | [MegatronKing/StringFog](https://github.com/MegatronKing/StringFog) |
+
+感谢上述开源项目及贡献者；项目名称与仓库归各自维护者所有。
+
 ## v1.0.1
 
 ### Nekora 1.0.1 · 包名更正重发
