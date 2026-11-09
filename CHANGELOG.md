@@ -41,19 +41,6 @@ APK 下载：[Releases](https://github.com/DJWSJ/Nekora/releases)。
 - 使用支持 libxposed API 102 的框架，例如 Vector 2.2，并启用对应宿主作用域；旧 LSPosed 1.9.2 不支持此入口。
 - 标准版、极速版与模块 App 的配置分别保存，开关不会自动相互同步。
 
-#### 使用的开源仓库
-
-| 项目 | 用途 | 仓库 |
-| --- | --- | --- |
-| libxposed API | 模块运行接口 | [libxposed/api](https://github.com/libxposed/api) |
-| DexKit | 宿主功能适配 | [LuckyPray/DexKit](https://github.com/LuckyPray/DexKit) |
-| AndroidX / Jetpack Compose | 界面、主题与基础组件 | [androidx/androidx](https://github.com/androidx/androidx) |
-| Kotlin Coroutines | 异步任务与界面调度 | [Kotlin/kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) |
-| OkHttp | 安装包下载 | [square/okhttp](https://github.com/square/okhttp) |
-| StringFog | 字符串处理 | [MegatronKing/StringFog](https://github.com/MegatronKing/StringFog) |
-
-感谢上述开源项目及贡献者；项目名称与仓库归各自维护者所有。
-
 ## v1.0.1
 
 ### Nekora 1.0.1 · 包名更正重发
